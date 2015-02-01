@@ -5,6 +5,8 @@ body {
    
 header {
     background: #F3C7C9;
+    overflow:hidden;
+    position:relative;
     .top-svgs {
         position: absolute;
         top: -100px;
@@ -15,6 +17,34 @@ header {
         top:-100px;
         z-index:0;
     }
+    .clouds img {
+        opacity: .9;
+        // top:40px;
+        left:-150px;
+        // width:100px;
+        position:absolute;
+    }
+    // .cloudA {
+    //     position:absolute;
+    //     top:40px;
+    //     left:0;
+    //     width:135px;
+    //     opacity:.9
+    // }
+    // .cloudB {
+    //     position:absolute;
+    //     top:80px;
+    //     left:200px;
+    //     width:85px;
+    //     opacity:.8
+    // }
+    // .cloudC {
+    //     position:absolute;
+    //     top:30px;
+    //     left:500px;
+    //     width:125px;
+    //     opacity:.8
+    // }
 }
 .main {
     top:-105px;
