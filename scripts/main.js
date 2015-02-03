@@ -1,10 +1,10 @@
 $(function() {
-    var initAnimations = (function() {
+    var initAnimations = function() {
         var svgs = {
             mountainFront: $(".mountains-front"),
             mountainBack: $(".mountains"),
             cityscape: $(".cityscape"),
-            skyline: $(".clouds"),
+            skyline: $(".skyline"),
             cloudA: $(".cloudA"),
             cloudB: $(".cloudB"),
             cloudC: $(".cloudC")
@@ -53,17 +53,17 @@ $(function() {
             $(".clouds").append("<img src = \"images/" + cloudArray[randomnum] + ".svg" + "\" />");
             obj = $(".clouds img:last-child");
 
-            animateCloud(obj, speed,objWidth, position);
+            animateCloud(obj, speed, objWidth, position);
 
             setTimeout(generateCloud, time);
 
         })();
-      
+
         function animateCloud(obj, speed, objWidth, pos) {
-             
+
                 obj.css({
-                    "width": objWidth+"px",
-                    "top": pos +"px"
+                    "width": objWidth + "px",
+                    "top": pos + "px"
                 });
                 obj.animate({
                         "left": width,
@@ -74,8 +74,73 @@ $(function() {
                         $(this).remove();
                     });
             }
-            // animate_cloudA();
-            // animate_cloudB();
-            // animate_cloudC();
-    })();
+            
+    };
+
+    function drawpath(canvas, pathstr, duration, attr, callback) {
+        var guide_path;
+        if (typeof(pathstr) == "string")
+            guide_path = canvas.path(pathstr).attr({
+                stroke: "none",
+                fill: "none"
+            });
+        else
+            guide_path = pathstr;
+        var path = canvas.path(guide_path.getSubpath(0, 1)).attr(attr);
+        var total_length = guide_path.getTotalLength(guide_path);
+        var last_point = guide_path.getPointAtLength(0);
+        var start_time = new Date().getTime();
+        var interval_length = 170;
+        var result = path;
+
+        var interval_id = setInterval(function() {
+            var elapsed_time = new Date().getTime() - start_time;
+            var this_length = elapsed_time / duration * total_length;
+            var subpathstr = guide_path.getSubpath(0, this_length);
+            attr.path = subpathstr;
+
+            path.animate(attr, interval_length);
+            if (elapsed_time >= duration) {
+                clearInterval(interval_id);
+                if (callback !== undefined) callback();
+                guide_path.remove();
+                initAnimations();
+            }
+        }, interval_length);
+
+        return result;
+    }
+
+    // $(window).ready(function() {
+        var color = "#480532";
+        var paper = Raphael(document.getElementById('paper'), jQuery("#paper").width(), jQuery("#paper").height());
+        $("#paper").css({
+            position: 'absolute',
+            top: "75px",
+            left: "200px",
+            'z-index': 100
+        });
+
+        var animation = function() {
+            var path1 = paper.print(50, 50, "Save the Date", paper.getFont("Dancing Script"), 100).attr({
+                fill: 'none',
+                stroke: 'none'
+            });
+
+            setTimeout(function() {
+                var stroke1 = drawpath(paper, path1, 3000, {
+                    stroke: color,
+                    fill: 'none',
+                    'fill-opacity': 0
+                }, function(e) {
+                    stroke1.animate({
+                        'fill-opacity': 1,
+                        fill: color
+                    }, 2000);
+                });
+            }, 0);
+        };
+
+        animation();
+    // });
 });
