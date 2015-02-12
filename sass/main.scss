@@ -1,12 +1,39 @@
-@import "compass/reset";
+@import "normalize.scss";
+@import "mixins.scss";
 body {
     background: #480532;
     font-family: 'Roboto Slab', serif;
+    font-size: 1em;
 }
 .contain {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1000px;
     width: 90%;
+    @include break-at(768) {
+        width: 768px;
+        max-width: auto;
+    }
+}
+h1, h2, h3 {
+    font-family: 'Dancing Script', cursive;
+}
+.october-leaf {
+    position: absolute;
+    background-color: transparent;
+    background-image: url('../images/leaves2.png');
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: .5;
+}
+#loader {
+    background: url("../images/Preloader_2.gif") no-repeat scroll 50% 50% #FFFFFF;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
 }
 header {
     background: #F3C7C9;
@@ -21,30 +48,92 @@ header {
         position: relative;
         top: -100px;
         z-index: 0;
-    }
-    #paper {
-        // position: absolute;
-        // top: 86px;
-        // left: 150px;
-        // z-index: 2000;
+        opacity: 0;
     }
     .clouds img {
         opacity: .9;
-        // top:40px;
         left: -150px;
-        // width:100px;
         position: absolute;
+    }
+    .the-date {
+        position: absolute;
+        top: 50px;
+        left: 15%;
+        z-index: 2000;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 5em;
+        line-height: 80px;
+        margin: 0;
+        z-index: 2000;
+        color: #480532;
+        display: none;
+    }
+    h2 {
+        color: #d56859;
+        font-size: 2.35em;
+        margin: 0;
+        position: relative;
+        display: none;
+    }
+    .learn-more {
+        color: #fff;
+        border: 2px solid #FDEFEA;
+        width: 150px;
+        text-align: center;
+        padding: 5px 0px;
+        background: #D56872;
+        margin-top: 20px;
+        position: relative;
+        left: 415px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover {
+            background: #480032;
+            width: 160px;
+        }
+    }
+    // .mountains {
+    //     left:-125px;
+    // }
+    // .mountains-front {
+    //     left:125px;
+    // }
+    @include break-at(1380) {
+        .top-svgs, .static {
+            top: 0;
+        }
+    }
+    @include break-at(1040) {
+        .top-svgs, .static {
+            padding-top: 100px;
+        }
+        .static {
+            padding-top: 100px;
+        }
+    }
+    @include break-at(768) {
+        width: 768px;
+        .top-svgs, .static {
+            width: 768px;
+        }
     }
 }
 .main {
-    top: -105px;
+    top: -106px;
     position: relative;
     background: #480532;
-    min-height: 2000px;
     z-index: 2000;
     padding: 100px 0;
     .section {
+        position: relative;
         margin-bottom: 100px;
+        z-index: 1000;
+    }
+    .leaf {
+        position: absolute;
+        z-index: 0;
     }
     h2 {
         font-weight: 700;
@@ -53,23 +142,24 @@ header {
         text-align: center;
         letter-spacing: 1.35px;
         margin-bottom: 33px;
-         font-family: 'Dancing Script', cursive;
         // font-family: 'Petit Formal Script', cursive;
         //font-family: 'Rouge Script', cursive;
-
     }
-    .divider {
-       background: #D56859;;
-        margin:0 auto;
-        width:20%;
-        height:1px;
-        margin-bottom:30px;
+    .divider, .divider2 {
+        background: #D56859;
+        margin: 0 auto;
+        width: 20%;
+        height: 1px;
+        margin-bottom: 30px;
+    }
+    .divider2 {
+        margin-bottom: 45px;
     }
     p {
         font-weight: 100;
         font-size: 1.5em;
         color: #eee;
-        // margin-bottom:100px;
+        margin: 0;
         &.center {
             text-align: center;
             line-height: 37px;
@@ -89,19 +179,46 @@ header {
             font-size: 1.2em;
             font-style: italic;
             line-height: 27px;
-            margin-bottom:15px;
+            margin-bottom: 15px;
         }
         a {
-              color: #fdc576;
-              font-size:.75em;
+            color: #fdc576;
+            font-size: .75em;
         }
     }
     .hotel {
         font-size: 1.15em;
         line-height: 26px;
-        margin-bottom:30px;
+        margin-bottom: 30px;
         b {
-            font-weight:400;
+            font-weight: 400;
         }
     }
+    .left, .right {
+        width: 45%;
+        float: left;
+    }
+    .left {
+        margin-right: 5%;
+    }
+    @include break-at(1380) {
+        top: -6px;
+    }
+    @include break-at(1040) {
+        .hotel {
+            text-align: center;
+        }
+        .left, .right {
+            float: none;
+            width: 100%;
+        }
+    }
+    @include break-at(768) {
+        width: 768px;
+    }
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }
