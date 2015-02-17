@@ -17,6 +17,15 @@ body {
 h1, h2, h3 {
     font-family: 'Dancing Script', cursive;
 }
+#hiddenInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    padding: 0;
+    width: 0;
+    border: 0;
+}
 .october-leaf {
     position: absolute;
     background-color: transparent;
@@ -35,7 +44,7 @@ h1, h2, h3 {
     width: 100%;
     z-index: 9999;
 }
-header {
+#header {
     background: #F3C7C9;
     overflow: hidden;
     position: relative;
@@ -43,12 +52,16 @@ header {
         position: absolute;
         top: -100px;
         z-index: 1000;
+        // width:100%;
+        // height:300px;
+        width: 100%;
     }
     .static {
         position: relative;
         top: -100px;
         z-index: 0;
         opacity: 0;
+        width: 100%;
     }
     .clouds img {
         opacity: .9;
@@ -193,6 +206,12 @@ header {
         b {
             font-weight: 400;
         }
+    }
+    .booking {
+        font-size: 1.15em;
+        margin-bottom: 25px;
+        color: #fdc576;
+        font-style: italic;
     }
     .left, .right {
         width: 45%;

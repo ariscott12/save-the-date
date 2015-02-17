@@ -1,0 +1,5 @@
+#header h2 {
+  display: block; }
+#header .learn-more {
+  left: 245px;
+  cursor: pointer; }

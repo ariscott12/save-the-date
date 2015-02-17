@@ -5,7 +5,12 @@ module.exports = function(grunt) {
             dist: {
 
                 files: {
-                    'css/main.css': 'sass/main.scss'
+                    'css/main.css': 'sass/main.scss',
+                    'css/overrideie9.css': 'sass/overrideie9.scss',
+                    'css/overrideie8.css': 'sass/overrideie8.scss'
+                },
+                options: { // Target options
+                    style: 'compact'
                 }
             }
         },
@@ -40,7 +45,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-connect');
-
 
     //Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['connect', 'watch']);

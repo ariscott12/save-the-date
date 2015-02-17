@@ -337,6 +337,15 @@ body {
 h1, h2, h3 {
   font-family: 'Dancing Script', cursive; }
 
+#hiddenInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  padding: 0;
+  width: 0;
+  border: 0; }
+
 .october-leaf {
   position: absolute;
   background-color: transparent;
@@ -355,43 +364,45 @@ h1, h2, h3 {
   width: 100%;
   z-index: 9999; }
 
-header {
+#header {
   background: #F3C7C9;
   overflow: hidden;
   position: relative; }
-  header .top-svgs {
+  #header .top-svgs {
     position: absolute;
     top: -100px;
-    z-index: 1000; }
-  header .static {
+    z-index: 1000;
+    width: 100%; }
+  #header .static {
     position: relative;
     top: -100px;
     z-index: 0;
-    opacity: 0; }
-  header .clouds img {
+    opacity: 0;
+    width: 100%; }
+  #header .clouds img {
     opacity: 0.9;
     left: -150px;
     position: absolute; }
-  header .the-date {
+  #header .the-date {
     position: absolute;
     top: 50px;
     left: 15%;
     z-index: 2000;
     overflow: hidden; }
-  header h1 {
+  #header h1 {
     font-size: 5em;
     line-height: 80px;
     margin: 0;
     z-index: 2000;
     color: #480532;
     display: none; }
-  header h2 {
+  #header h2 {
     color: #d56859;
     font-size: 2.35em;
     margin: 0;
     position: relative;
     display: none; }
-  header .learn-more {
+  #header .learn-more {
     color: #fff;
     border: 2px solid #FDEFEA;
     width: 150px;
@@ -403,24 +414,24 @@ header {
     left: 415px;
     cursor: pointer;
     transition: all 0.5s ease; }
-    header .learn-more:hover {
+    #header .learn-more:hover {
       background: #480032;
       width: 160px; }
   @media screen and (max-width: 1380px) {
-    header .top-svgs, header .static {
+    #header .top-svgs, #header .static {
       top: 0; }
  }
   @media screen and (max-width: 1040px) {
-    header .top-svgs, header .static {
+    #header .top-svgs, #header .static {
       padding-top: 100px; }
 
-    header .static {
+    #header .static {
       padding-top: 100px; }
  }
   @media screen and (max-width: 768px) {
-    header {
+    #header {
       width: 768px; }
-      header .top-svgs, header .static {
+      #header .top-svgs, #header .static {
         width: 768px; } }
 
 .main {
@@ -482,6 +493,11 @@ header {
     margin-bottom: 30px; }
     .main .hotel b {
       font-weight: 400; }
+  .main .booking {
+    font-size: 1.15em;
+    margin-bottom: 25px;
+    color: #fdc576;
+    font-style: italic; }
   .main .left, .main .right {
     width: 45%;
     float: left; }
