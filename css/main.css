@@ -402,6 +402,8 @@ h1, h2, h3 {
     margin: 0;
     position: relative;
     display: none; }
+    #header h2 span {
+      display: block; }
   #header .learn-more {
     color: #fff;
     border: 2px solid #FDEFEA;
@@ -409,7 +411,7 @@ h1, h2, h3 {
     text-align: center;
     padding: 5px 0px;
     background: #D56872;
-    margin-top: 20px;
+    margin-top: 17px;
     position: relative;
     left: 415px;
     cursor: pointer;
@@ -484,6 +486,9 @@ h1, h2, h3 {
       font-style: italic;
       line-height: 27px;
       margin-bottom: 15px; }
+    .main p.sml {
+      margin-bottom: 20px;
+      font-size: 1.15em; }
     .main p a {
       color: #fdc576;
       font-size: 0.75em; }
