@@ -58,13 +58,14 @@ $(window).load(function() {
     $("#loader").fadeOut(1000);
     initAnimations();
     // blur the iframe
-    document.getElementById("bing").blur();
-    // set focus on #foo
-    document.getElementById("hiddenInput").focus();
-    //when iframe tries to focus, focus #foo
-    document.getElementById("hiddenInput").onblur = function() {
-        this.focus();
-    };
+    // document.getElementById("bing").blur();
+    // // set focus on #foo
+    // document.getElementById("hiddenInput").focus();
+    // //when iframe tries to focus, focus #foo
+    // document.getElementById("hiddenInput").onblur = function() {
+    //   $("#hiddenInput").focus();
+    // $("#hiddenInput").blur();
+    // };
 });
 
 
